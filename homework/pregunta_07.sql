@@ -28,18 +28,20 @@
 --    c24 FLOAT,
 --    c25 CHAR(5)
 --
---  Escriba una consulta que retorne todos los campos de 
---  la tabla tbl1 ordenada por fecha (c14) para los 
---  registros con K0 diferente a A y B y c13 diferente 
---  de 200 y 900
+--  Escriba una consulta que compute el promedio
+--  de la columna c21 de la tabla tbl2 por ano 
+--  (columna c23).
 --
 --  Rta/
---     K0  K1     c12  c13         c14   c15   c16
---  0   E  14  832.44  800  2016-11-22  0.39  EGFD
---  1   E   8  302.86  700  2016-12-22  0.14  DFCC
---  ...
---  11  C  19  570.43  400  2019-04-12  0.48  FBEE
---  12  C  24  482.32  300  2019-05-03  0.11  CCCE
--- 
+--     YEAR    avg(c21)
+--  0  2016  564.476429
+--  1  2017  515.156364
+--  2  2018  557.559375
+--  3  2019  550.998571
+--
 --  >>> Escriba su codigo a partir de este punto <<<
 --
+SELECT strftime('%Y', c23) AS YEAR, AVG(c21) AS avg_c21
+FROM tbl2
+GROUP BY strftime('%Y', c23)
+ORDER BY strftime('%Y', c23);
