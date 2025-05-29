@@ -41,7 +41,7 @@
 --
 --  >>> Escriba su codigo a partir de este punto <<<
 --
-SELECT strftime('%Y', c23) AS YEAR, AVG(c21) AS avg_c21
-FROM tbl2
-GROUP BY strftime('%Y', c23)
-ORDER BY strftime('%Y', c23);
+SELECT *
+FROM tbl1
+WHERE K0 NOT IN ('A', 'B') AND c13 NOT IN (200, 900)
+ORDER BY c14;
